@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+    static void primeCheck( int[] numberArray ) {
+        for( int i = 0; i < numberArray.Length; i++ ) {
+            int nbr = numberArray[ i ];
+
+            if( nbr == 1 || nbr == 0 ) {
+                Console.WriteLine( "Not prime" );
+                continue;
+            }
+            if( nbr == 2 ) {
+                Console.WriteLine( "Prime" );
+                continue;
+            }
+
+            string check = "";
+            int squareNbr = Convert.ToInt32( Math.Sqrt( nbr ) );
+            if( nbr % 2 == 0 ) {
+                check = "Not prime";
+                
+            } else {
+                for( int j = 3; j <= squareNbr; j += 2 ) {
+                    if( nbr % j == 0 ) {
+                        check = "Not prime";
+                        break;
+                    }
+                }
+            }
+
+            if( check == "" ) {
+                check = "Prime";
+            }
+            Console.WriteLine( check );
+        }
+        
+    }
+
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+
+        int nbrCount = Int32.Parse( Console.ReadLine() );
+        int[] numberArray = new int[ nbrCount ];
+        for( int i = 0; i < nbrCount; i++ ) {
+            numberArray[ i ] = Int32.Parse( Console.ReadLine() );
+        }
+
+        primeCheck( numberArray );
+    }
+}
+
