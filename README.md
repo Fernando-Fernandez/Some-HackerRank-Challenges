@@ -1,2 +1,2 @@
 # Some HackerRank Challenges
-C#
+C# and Javascript
